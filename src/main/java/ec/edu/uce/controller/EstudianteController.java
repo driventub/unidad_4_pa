@@ -25,7 +25,7 @@ public class EstudianteController {
 	@Autowired
 	private IEstudianteService estuService;
 
-//	@RequestMapping("/buscar/{idEstudiante}")
+	@RequestMapping("/buscar/{idEstudiante}")
 	@GetMapping("/buscar/{idEstudiante}")
 //	@RequestMapping(path = "/buscar/{idEstudiante}", method = RequestMethod.GET)
 	public String obtenerUsuario(@PathVariable("idEstudiante") Integer idEstudiante, Model modelo) {
@@ -41,6 +41,7 @@ public class EstudianteController {
 	}
 
 	@GetMapping("todos")
+	
 	public String buscarTodos(Model modelo) {
 		List<Estudiante> listaEstudiantes = this.estuService.buscarTodos();
 		modelo.addAttribute("estudiantes", listaEstudiantes);
@@ -66,6 +67,7 @@ public class EstudianteController {
 //	}
 
 	@GetMapping("/estudianteNuevo")
+	// Comentario
 	public String obtenerDato(Estudiante estudiante) {
 		return "estudiante_nuevo";
 
